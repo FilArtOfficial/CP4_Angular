@@ -27,9 +27,9 @@ export class ProductListComponent implements OnInit {
 
   loadProducts(): void {
     this.productService.getProducts().subscribe((data) => {
-      this.products = data.products; // Убедитесь, что вы получаете массив продуктов
-      this.filteredProducts = this.products; // Инициализация отфильтрованных продуктов
-      this.categories = this.productService.extractCategories(this.products); // Извлечение категорий
+      this.products = data.products;
+      this.filteredProducts = this.products;
+      this.categories = this.productService.extractCategories(this.products);
     });
   }
 
