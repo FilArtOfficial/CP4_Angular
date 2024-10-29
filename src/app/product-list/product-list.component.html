@@ -1,0 +1,21 @@
+<div class="filter-box">
+  <input [(ngModel)]="searchName" placeholder="Поиск продуктов..." />
+  <select [(ngModel)]="category" (change)="onFilter()">
+    <option value="">Все категории</option>
+    <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+  </select>
+  <input type="number" [(ngModel)]="maxPrice" placeholder="Максимальная цена" />
+  <input type="number" [(ngModel)]="rating" placeholder="Минимальный рейтинг" />
+  <button (click)="onFilter()">Фильтровать</button>
+</div>
+
+<div class="product-grid">
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <div class="product-info">
+      <h3>{{ product.title }}</h3>
+      <p>Цена: {{ product.price }}$</p>
+      <p>Рейтинг: {{ product.rating }}</p>
+      <p>Категория: {{ product.category }}</p>
+    </div>
+  </div>
+</div>
